@@ -23,9 +23,7 @@ export default function RootLayout({
           <Header />
 
           <div className="h-[calc(100vh-2.5rem)] w-full">
-            {/* <main id='main'> */}
               {children}
-            {/* </main> */}
           </div>
 
         </div>
