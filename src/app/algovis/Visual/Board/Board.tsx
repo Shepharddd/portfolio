@@ -46,9 +46,13 @@ export const Board: React.FC<BoardProps> = ({
 
   useEffect(() => {
     isMountingRef.current = true;
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    stepBoard();
+  }, [stepCount]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const stepBoard = () => {
     if (!isMountingRef.current) {
       if (!algoStarted.current) {
         fringe.current.setRoot(grid[start.current[0]][start.current[1]])
@@ -58,7 +62,8 @@ export const Board: React.FC<BoardProps> = ({
     } else {
       isMountingRef.current = false;
     }
-  }, [stepCount]);
+  }
+
 
   const getClass = (node: TileNode) => {
     switch (node.tileType) {
@@ -98,6 +103,7 @@ export const Board: React.FC<BoardProps> = ({
                 {row.map((node, nodeIndex) => {
                     return (
                       <div
+                        key={nodeIndex}
                         className={"flex size-full border border-slate-200 " + getClass(node)} 
                         onClick={() => toggleWall(rowIndex, nodeIndex)} 
                         onMouseEnter={() => (mouseDown.current) ?  toggleWall(rowIndex, nodeIndex): null}

@@ -1,16 +1,16 @@
-import Image from "next/image";
-import Header from "./Header/Header";
 import About from "./About/about";
-import Layout from "./layout";
 
 export default function Home({
-  child,
+  params,
+  searchParams
 }: {
-  child: React.ReactNode;
-}) {
+  params?: any
+  searchParams?: any
+}): React.ReactElement {
+  console.log(params);
   return (
     <div>
-        {child ?? <About />}
+        <About />
     </div>
   );
 }

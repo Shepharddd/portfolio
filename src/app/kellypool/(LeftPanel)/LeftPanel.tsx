@@ -57,7 +57,7 @@ export const LeftPanel: React.FC<PanelProps> = ({
     <div className='p-3 flex flex-col justify-center'>
       
 
-      {players.map((player) => <PlayerTile reveal={reveal} player={player} showBalls={showBalls} />)}
+      {players.map((player, index) => <PlayerTile key={index} reveal={reveal} player={player} showBalls={showBalls} />)}
     
 
       <AddPlayer onClick={addPlayer} />

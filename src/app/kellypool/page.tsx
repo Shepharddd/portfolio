@@ -3,7 +3,7 @@ import { useState } from "react";
 import { LeftPanel, Player } from "./(LeftPanel)/LeftPanel"
 import Display from "./(Display)/Display";
 
-export default function kellypool() {
+export default function Kellypool() {
 
   const arrayGen = (len: number, fill: any) => Array.from({length: len}, () => fill)
 

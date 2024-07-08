@@ -23,12 +23,13 @@ export default function AlgoVis() {
 
 
   useEffect(() => { 
-    // PAUSE ANIMATION
+    toggleAnimation()
+  }, [isAnimating]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const toggleAnimation = () => {
     if (!isAnimating) clearInterval(animationimeout);
-    
-    // PLAY ANIMATION
     if (isAnimating) setAnimationimeout(setInterval(step, 50));
-  }, [isAnimating]);
+  }
   
   const step = () => setStepCount((val) => {
     if (stepCount > width*height) clearInterval(animationimeout);
